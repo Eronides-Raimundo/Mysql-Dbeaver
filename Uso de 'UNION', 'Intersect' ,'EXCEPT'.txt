@@ -1,0 +1,48 @@
+create table crud.func(
+`id` int(11) primary key,
+`nome` varchar(255),
+`cidade` varchar(255),
+`pais` varchar(255)
+);
+
+insert into crud.users (id, nome, cidade, pais)
+values ('01', 'Adelino Pedro','Xai-Xai','MOZ')
+, ('02', 'Eronides Raimundo','Xai-Xai','MOZ')
+, ('03', 'Adelino','rio de janeiro','Brazil')
+, ('04', 'Pedro Guiamba','Xai-Xai','MOZ')
+
+
+
+create table crud.clientes(
+`id` int(11) primary key,
+`nome` varchar(255),
+`cidade` varchar(255),
+`pais` varchar(255)
+);
+
+
+insert into crud.clientes (id, nome, cidade, pais)
+values ('01', 'Key Wanted','Xai-Xai','MOZ')
+, ('02', 'Joana','Xai-Xai','MOZ')
+, ('03', 'Adelino jose ','rio de janeiro','Brazil')
+, ('04', 'Guiamba','Xai-Xai','MOZ')
+
+select id, nome  from func
+union all
+select id, nome  from clientes
+order by id 
+
+select id, nome  from func
+union 
+select id, nome  from clientes
+order by id 
+
+select id, nome  from func
+intersect
+select id, nome  from clientes
+order by id 
+
+select id, pais from func
+except
+select id, pais  from clientes
+order by id 
